@@ -10,6 +10,7 @@ import { EventEmitter } from '@angular/core';
 export class TodoItemComponent implements OnInit {
   @Input() todo: Todo;
   @Output() todoDelete: EventEmitter<Todo> = new EventEmitter();
+  @Output() todoCheck: EventEmitter<Todo> = new EventEmitter();
 
   constructor() { }
 
@@ -20,5 +21,7 @@ export class TodoItemComponent implements OnInit {
     //console.log(todo);
     console.log("onCLick in triggerd!");
   }
-
+  check(todo: Todo) {
+    this.todoCheck.emit(todo);
+  }
 }
